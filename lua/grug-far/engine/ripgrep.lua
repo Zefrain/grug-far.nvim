@@ -30,11 +30,10 @@ local RipgrepEngine = {
 
     prefills.search = table.concat(visual_selection, '\n')
     local flags = prefills.flags or ''
-    if not flags:find('%-%-fixed%-strings') then
-      flags = (#flags > 0 and flags .. ' ' or flags) .. '--fixed-strings'
-    end
     if #visual_selection > 1 and not flags:find('%-%-multiline') then
       flags = (#flags > 0 and flags .. ' ' or flags) .. '--multiline'
+    else
+      prefills.search = '\\b' .. prefills.search .. '\\b'
     end
     prefills.flags = flags
 
