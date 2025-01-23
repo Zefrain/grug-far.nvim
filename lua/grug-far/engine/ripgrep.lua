@@ -32,8 +32,8 @@ local RipgrepEngine = {
     local flags = prefills.flags or ''
     if #visual_selection > 1 and not flags:find('%-%-multiline') then
       flags = (#flags > 0 and flags .. ' ' or flags) .. '--multiline'
-    else
-      prefills.search = '\\b' .. prefills.search .. '\\b'
+    -- else
+    --   prefills.search = '\\b' .. prefills.search .. '\\b'
     end
     prefills.flags = flags
 
